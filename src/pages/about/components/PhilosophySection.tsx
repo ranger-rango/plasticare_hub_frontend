@@ -41,7 +41,7 @@ const PhilosophySection = () => {
               </span>
             </div>
             <h2 className="font-headline text-3xl sm:text-4xl lg:text-5xl font-bold text-text-primary mb-6">
-              The MedBeauty Difference
+              The PlastiCare Hub Difference
             </h2>
             <p className="font-body text-lg text-text-secondary max-w-3xl mx-auto">
               We believe that aesthetic enhancement is not about vanity—it's about self-investment and personal empowerment. Our approach combines medical authority with luxury hospitality, creating an environment where you feel both safe and pampered.

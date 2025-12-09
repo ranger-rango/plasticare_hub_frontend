@@ -52,3 +52,14 @@ export interface FilterOptions {
   experience: string;
   availability: string;
 }
+
+export interface Consultation {
+  name: string;
+  email: string;
+  phone: string;
+  interestedProcedure: string;
+  preferredDoctor: string;
+  preferredDate: string;
+  preferredTime: string;
+  message: string;
+}

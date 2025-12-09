@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Header from '../../components/ui/Header';
 import HeroSection from './components/HeroSection';
 import PhilosophySection from './components/PhilosophySection';
@@ -9,11 +9,16 @@ import CertificationsSection from './components/CertificationsSection';
 import AwardsSection from './components/AwardsSection';
 import CTASection from './components/CTASection';
 import Footer from './components/Footer';
+import ConsultationModal from 'components/ConsultationModal';
 
 const About = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  const [showConsultationModal, setShowConsultationModal] = useState(false)
+  const handleSubmit : any = () => 
+  {}
 
   return (
     <div className="min-h-screen bg-background">
@@ -26,7 +31,15 @@ const About = () => {
         <TeamSection />
         <CertificationsSection />
         <AwardsSection />
-        <CTASection />
+        <CTASection onOpen={ () => { setShowConsultationModal(true) } }/>
+
+        {showConsultationModal &&
+        <ConsultationModal
+          onClose={() => {
+            setShowConsultationModal(false);
+          }}
+          onSubmit={handleSubmit} />
+        }
       </main>
       <Footer />
     </div>

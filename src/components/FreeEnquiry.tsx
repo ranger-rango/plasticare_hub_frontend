@@ -1,35 +1,29 @@
 import { useState } from 'react';
-import { VirtualConsultation } from '../types';
-import Icon from '../../../components/AppIcon';
-import Button from '../../../components/ui/Button';
-import Input from '../../../components/ui/Input';
+import { FreeEnq } from 'pages/homepage/types';
+import Icon from './AppIcon';
+import Button from './ui/Button';
+import Input from './ui/Input';
 import Select from 'components/ui/Select';
 
-interface ConsultationModalProps {
-  procedureName: string;
-  procedureId: string;
+interface FreeEnquiryProps {
   onClose: () => void;
-  onSubmit: (data: VirtualConsultation) => void;
+  onSubmit: (data: FreeEnq) => void;
 }
 
-const ConsultationModal = ({
-  procedureName,
-  procedureId,
+const FreeEnquiry = ({
   onClose,
   onSubmit
-}: ConsultationModalProps) => {
-  const [formData, setFormData] = useState<VirtualConsultation>({
-    procedureId,
+}: FreeEnquiryProps) => {
+  const [formData, setFormData] = useState<FreeEnq>({
     name: '',
     email: '',
     phone: '',
-    preferredDoctor: '',
-    preferredDate: '',
-    preferredTime: '',
+    interestedProcedure: '',
+    infoType: '',
     message: ''
   });
 
-  const preferredDoctors = [
+  const procedures = [
     { value: 'rhinoplasty', label: 'Rhinoplasty' },
     { value: 'breast-augmentation', label: 'Breast Augmentation' },
     { value: 'liposuction', label: 'Liposuction' },
@@ -39,9 +33,20 @@ const ConsultationModal = ({
     { value: 'botox-fillers', label: 'Botox & Fillers' },
     { value: 'other', label: 'Other / Not Sure' }
   ];
-  const [errors, setErrors] = useState<Partial<Record<keyof VirtualConsultation, string>>>({});
 
-  const handleChange = (field: keyof VirtualConsultation, value: string) => {
+  const infoTypes = [
+    { value: 'general_information', label: 'General Information' },
+    { value: 'pricing_packages', label: 'Pricing & Packages' },
+    { value: 'procedure_details', label: 'Procedure Details' },
+    { value: 'recovery_aftercare', label: 'Recovery & Aftercare' },
+    { value: 'before_after_photos', label: 'Before & After Photos' },
+    { value: 'financing_options', label: 'Financing Options' },
+    { value: 'surgeon_credentials', label: 'Surgeon Credentials' },
+    { value: 'safety_risks', label: 'Safety & Risks' }
+  ];
+  const [errors, setErrors] = useState<Partial<Record<keyof FreeEnq, string>>>({});
+
+  const handleChange = (field: keyof FreeEnq, value: string) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
     if (errors[field]) {
       setErrors((prev) => ({ ...prev, [field]: '' }));
@@ -49,7 +54,7 @@ const ConsultationModal = ({
   };
 
   const validateForm = (): boolean => {
-    const newErrors: Partial<Record<keyof VirtualConsultation, string>> = {};
+    const newErrors: Partial<Record<keyof FreeEnq, string>> = {};
 
     if (!formData.name.trim()) {
       newErrors.name = 'Name is required';
@@ -63,14 +68,6 @@ const ConsultationModal = ({
 
     if (!formData.phone.trim()) {
       newErrors.phone = 'Phone number is required';
-    }
-
-    if (!formData.preferredDate) {
-      newErrors.preferredDate = 'Preferred date is required';
-    }
-
-    if (!formData.preferredTime) {
-      newErrors.preferredTime = 'Preferred time is required';
     }
 
     setErrors(newErrors);
@@ -98,15 +95,12 @@ const ConsultationModal = ({
         <div className="overflow-y-auto max-h-[90vh]">
           <div className="p-8">
             <div className="flex items-center space-x-3 mb-6">
-              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
-                <Icon name="Calendar" size={24} className="text-primary" />
-              </div>
               <div>
                 <h2 className="font-headline text-2xl font-bold text-text-primary">
-                  Book Virtual Consultation
+                  Get Free Enquiry
                 </h2>
-                <p className="font-body text-sm text-text-secondary">
-                  For {procedureName}
+                <p>
+                   Get expert answers to your questions about procedures, pricing, recovery, and more. Our patient coordinators will provide detailed information to help you make an informed decision. 
                 </p>
               </div>
             </div>
@@ -144,35 +138,27 @@ const ConsultationModal = ({
                 />
               </div>
 
-                <Select
-                  label="Preferred Doctor"
-                  placeholder="Select a surgeon"
-                  options={preferredDoctors}
-                  value={formData.preferredDoctor}
-                  onChange={(value) => handleChange('preferredDoctor', value as string)}
-                  error={errors.preferredDoctor}
-                  required
-                />
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <Select
+                    label="Procedure of Interest"
+                    placeholder="Select a procedure"
+                    options={procedures}
+                    value={formData.interestedProcedure}
+                    onChange={(value) => handleChange('interestedProcedure', value as string)}
+                    error={errors.interestedProcedure}
+                    required
+                    />
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <Input
-                  label="Preferred Date"
-                  type="date"
-                  value={formData.preferredDate}
-                  onChange={(e) => handleChange('preferredDate', e.target.value)}
-                  error={errors.preferredDate}
-                  required
-                />
-
-                <Input
-                  label="Preferred Time"
-                  type="time"
-                  value={formData.preferredTime}
-                  onChange={(e) => handleChange('preferredTime', e.target.value)}
-                  error={errors.preferredTime}
-                  required
-                />
-              </div>
+                    <Select
+                    label="Type of Information"
+                    placeholder="What info do you need"
+                    options={infoTypes}
+                    value={formData.infoType}
+                    onChange={(value) => handleChange('infoType', value as string)}
+                    error={errors.infoType}
+                    required
+                    />
+                </div>
 
               <div>
                 <label className="block font-body text-sm font-medium text-text-primary mb-2">
@@ -185,20 +171,6 @@ const ConsultationModal = ({
                   rows={4}
                   className="w-full px-4 py-3 bg-surface border border-border rounded-xl font-body text-sm text-text-primary placeholder:text-text-secondary focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-brand resize-none"
                 />
-              </div>
-
-              <div className="p-4 bg-secondary/10 rounded-xl border border-secondary/30">
-                <div className="flex items-start space-x-3">
-                  <Icon name="Info" size={20} className="text-primary mt-0.5 flex-shrink-0" />
-                  <div>
-                    <p className="font-body text-sm font-medium text-text-primary mb-1">
-                      What to Expect
-                    </p>
-                    <p className="font-body text-xs text-text-secondary">
-                      Our team will review your request and contact you within 24 hours to confirm your consultation appointment. Virtual consultations typically last 30-45 minutes.
-                    </p>
-                  </div>
-                </div>
               </div>
 
               <div className="flex items-center space-x-4 pt-4">
@@ -223,8 +195,9 @@ const ConsultationModal = ({
                   Submit Request
                 </Button>
               </div>
+
                 <p className="font-body text-xs text-text-secondary text-center">
-                  By submitting this form, you agree to our Privacy Policy and Terms of Service. Your information is secure and confidential.
+                    By submitting this form, you agree to our Privacy Policy and Terms of Service. Your information is secure and confidential.
                 </p>
             </form>
           </div>
@@ -234,4 +207,4 @@ const ConsultationModal = ({
   );
 };
 
-export default ConsultationModal;
+export default FreeEnquiry;

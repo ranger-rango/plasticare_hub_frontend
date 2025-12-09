@@ -69,7 +69,8 @@ const AwardsSection = () => {
     image:
     "https://img.rocket.new/generatedImages/rocket_gen_img_159f7e8d1-1764655706086.png",
     alt: 'Elegant crystal award for Excellence in Patient Experience with star design'
-  }];
+  }
+];
 
 
   const mediaFeatures: MediaFeature[] = [

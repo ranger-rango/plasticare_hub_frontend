@@ -4,6 +4,7 @@ import Icon from '../../../components/AppIcon';
 
 const HeroSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [heroSlidesId, setHeroSlidesId] = useState("consultation-booking-section")
 
   const heroSlides = [
     {
@@ -11,34 +12,42 @@ const HeroSection = () => {
       subtitle: "Where Medical Excellence Meets Aesthetic Artistry",
       description: "Experience the perfect fusion of clinical precision and luxury wellness at PlastiCare Hub",
       video: "https://assets.mixkit.co/videos/preview/mixkit-medical-clinic-interior-with-modern-equipment-50633-large.mp4",
-      cta: "Book Virtual Consultation"
+      cta: "Book Your Consultation",
+      id: "consultation-booking-section"
     },
     {
       title: "Your Journey to Confidence",
       subtitle: "Expert Care, Beautiful Results",
       description: "Board-certified surgeons specializing in transformative aesthetic and reconstructive procedures",
       video: "https://assets.mixkit.co/videos/preview/mixkit-woman-getting-a-facial-treatment-at-a-spa-50634-large.mp4",
-      cta: "Explore Procedures"
+      cta: "Explore Procedures",
+      id: "featured-procedures-section"
     },
     {
       title: "Empowerment Through Excellence",
       subtitle: "Personalized Care, Exceptional Outcomes",
       description: "State-of-the-art facility combining medical expertise with luxury hospitality",
       video: "https://assets.mixkit.co/videos/preview/mixkit-medical-professional-reviewing-patient-records-50635-large.mp4",
-      cta: "Meet Our Surgeons"
+      cta: "Meet Our Surgeons",
+      id: "surgeon-spotlight-section"
     }
   ];
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
-    }, 6000);
-
+      setCurrentSlide((prevIndex) => {
+        const nextIndex = (prevIndex + 1) % heroSlides.length;
+        setHeroSlidesId(heroSlides[nextIndex].id);
+        return nextIndex;
+      })  
+    }, 10000);
+    
     return () => clearInterval(timer);
-  }, [heroSlides.length]);
+  }, [heroSlides.length, heroSlides, setHeroSlidesId]);
 
   const handleSlideChange = (index: number) => {
     setCurrentSlide(index);
+    setHeroSlidesId(heroSlides[index].id)
   };
 
   return (
@@ -96,8 +105,9 @@ const HeroSection = () => {
                     iconSize={20}
                     className="bg-primary hover:bg-primary/90 shadow-brand text-base sm:text-lg px-8 py-6"
                   >
-                    {slide.cta}
+                    <a href={`#${heroSlidesId}`}>{ slide.cta }</a>
                   </Button>
+                  
                   <Button
                     variant="outline"
                     size="lg"

@@ -8,6 +8,7 @@ import StoryCard from './components/StoryCard';
 import StoryModal from './components/StoryModal';
 import StatsSection from './components/StatsSection';
 import { PatientStory, GalleryFilters, FilterOptions } from './types';
+import ConsultationModal from 'components/ConsultationModal';
 
 const PatientGallery = () => {
   const [filters, setFilters] = useState<GalleryFilters>({
@@ -20,6 +21,7 @@ const PatientGallery = () => {
   const [selectedStory, setSelectedStory] = useState<PatientStory | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
+  const [showConsultationModal, setShowConsultationModal] = useState(false);
 
   const patientStories: PatientStory[] = [
   {
@@ -200,6 +202,9 @@ const PatientGallery = () => {
     setIsModalOpen(true);
   };
 
+  const handleSubmit : any = () => 
+  {}
+
   return (
     <>
       <Helmet>
@@ -233,8 +238,9 @@ const PatientGallery = () => {
                   size="lg"
                   iconName="Calendar"
                   iconPosition="left"
-                  className="bg-primary hover:bg-primary/90 shadow-brand">
-
+                  className="bg-primary hover:bg-primary/90 shadow-brand"
+                  onClick={ () => { setShowConsultationModal(true) } }
+                  >
                   Start Your Journey
                 </Button>
                 <Button
@@ -380,8 +386,9 @@ const PatientGallery = () => {
                   size="lg"
                   iconName="Calendar"
                   iconPosition="left"
-                  className="bg-primary hover:bg-primary/90 shadow-brand">
-
+                  className="bg-primary hover:bg-primary/90 shadow-brand"
+                  onClick={ () => { setShowConsultationModal(true) } }
+                  >
                   Book Free Consultation
                 </Button>
                 <Button
@@ -413,10 +420,10 @@ const PatientGallery = () => {
                         <Icon name="Shield" size={20} className="text-primary mt-1" />
                         <div>
                           <h3 className="font-semibold text-text-primary mb-1">
-                            HIPAA Compliant
+                            DPA Compliant
                           </h3>
                           <p className="text-sm text-text-secondary">
-                            All patient information is protected under strict medical privacy laws
+                            All patient information is protected under strict privacy laws
                           </p>
                         </div>
                       </div>
@@ -458,7 +465,6 @@ const PatientGallery = () => {
                       iconName="Send"
                       iconPosition="left"
                       className="bg-primary hover:bg-primary/90">
-
                       Submit Your Story
                     </Button>
                   </div>
@@ -471,7 +477,7 @@ const PatientGallery = () => {
         <footer className="bg-text-primary text-primary-foreground py-12">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <p className="text-sm opacity-80">
-              &copy; {new Date().getFullYear()} MedBeauty Clinic. All rights reserved. | Privacy Policy | Terms of Service
+              &copy; {new Date().getFullYear()} PlastiCare Hub. All rights reserved. | Privacy Policy | Terms of Service
             </p>
           </div>
         </footer>
@@ -483,7 +489,16 @@ const PatientGallery = () => {
         onClose={() => {
           setIsModalOpen(false);
           setSelectedStory(null);
-        }} />
+        }} 
+      />
+
+      {showConsultationModal &&
+      <ConsultationModal
+        onClose={() => {
+          setShowConsultationModal(false);
+        }}
+        onSubmit={handleSubmit} />
+      }
 
     </>);
 

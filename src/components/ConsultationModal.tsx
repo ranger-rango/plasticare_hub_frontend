@@ -1,33 +1,40 @@
 import { useState } from 'react';
-import { VirtualConsultation } from '../types';
-import Icon from '../../../components/AppIcon';
-import Button from '../../../components/ui/Button';
-import Input from '../../../components/ui/Input';
+import { Consultation } from '../pages/surgeons/types';
+import Icon from './AppIcon';
+import Button from './ui/Button';
+import Input from './ui/Input';
 import Select from 'components/ui/Select';
 
 interface ConsultationModalProps {
-  procedureName: string;
-  procedureId: string;
   onClose: () => void;
-  onSubmit: (data: VirtualConsultation) => void;
+  onSubmit: (data: Consultation) => void;
 }
 
 const ConsultationModal = ({
-  procedureName,
-  procedureId,
   onClose,
   onSubmit
 }: ConsultationModalProps) => {
-  const [formData, setFormData] = useState<VirtualConsultation>({
-    procedureId,
+  const [formData, setFormData] = useState<Consultation>({
     name: '',
     email: '',
     phone: '',
+    interestedProcedure: '',
     preferredDoctor: '',
     preferredDate: '',
     preferredTime: '',
     message: ''
   });
+
+  const procedures = [
+    { value: 'rhinoplasty', label: 'Rhinoplasty' },
+    { value: 'breast-augmentation', label: 'Breast Augmentation' },
+    { value: 'liposuction', label: 'Liposuction' },
+    { value: 'facelift', label: 'Facelift' },
+    { value: 'tummy-tuck', label: 'Tummy Tuck' },
+    { value: 'eyelid-surgery', label: 'Eyelid Surgery' },
+    { value: 'botox-fillers', label: 'Botox & Fillers' },
+    { value: 'other', label: 'Other / Not Sure' }
+  ];
 
   const preferredDoctors = [
     { value: 'rhinoplasty', label: 'Rhinoplasty' },
@@ -39,9 +46,9 @@ const ConsultationModal = ({
     { value: 'botox-fillers', label: 'Botox & Fillers' },
     { value: 'other', label: 'Other / Not Sure' }
   ];
-  const [errors, setErrors] = useState<Partial<Record<keyof VirtualConsultation, string>>>({});
+  const [errors, setErrors] = useState<Partial<Record<keyof Consultation, string>>>({});
 
-  const handleChange = (field: keyof VirtualConsultation, value: string) => {
+  const handleChange = (field: keyof Consultation, value: string) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
     if (errors[field]) {
       setErrors((prev) => ({ ...prev, [field]: '' }));
@@ -49,7 +56,7 @@ const ConsultationModal = ({
   };
 
   const validateForm = (): boolean => {
-    const newErrors: Partial<Record<keyof VirtualConsultation, string>> = {};
+    const newErrors: Partial<Record<keyof Consultation, string>> = {};
 
     if (!formData.name.trim()) {
       newErrors.name = 'Name is required';
@@ -103,11 +110,8 @@ const ConsultationModal = ({
               </div>
               <div>
                 <h2 className="font-headline text-2xl font-bold text-text-primary">
-                  Book Virtual Consultation
+                  Book Your Consultation
                 </h2>
-                <p className="font-body text-sm text-text-secondary">
-                  For {procedureName}
-                </p>
               </div>
             </div>
 
@@ -143,6 +147,16 @@ const ConsultationModal = ({
                   required
                 />
               </div>
+
+                <Select
+                  label="Procedure of Interest"
+                  placeholder="Select a procedure"
+                  options={procedures}
+                  value={formData.interestedProcedure}
+                  onChange={(value) => handleChange('interestedProcedure', value as string)}
+                  error={errors.preferredDoctor}
+                  required
+                />
 
                 <Select
                   label="Preferred Doctor"
@@ -187,20 +201,6 @@ const ConsultationModal = ({
                 />
               </div>
 
-              <div className="p-4 bg-secondary/10 rounded-xl border border-secondary/30">
-                <div className="flex items-start space-x-3">
-                  <Icon name="Info" size={20} className="text-primary mt-0.5 flex-shrink-0" />
-                  <div>
-                    <p className="font-body text-sm font-medium text-text-primary mb-1">
-                      What to Expect
-                    </p>
-                    <p className="font-body text-xs text-text-secondary">
-                      Our team will review your request and contact you within 24 hours to confirm your consultation appointment. Virtual consultations typically last 30-45 minutes.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
               <div className="flex items-center space-x-4 pt-4">
                 <Button
                   type="button"
@@ -223,8 +223,9 @@ const ConsultationModal = ({
                   Submit Request
                 </Button>
               </div>
+
                 <p className="font-body text-xs text-text-secondary text-center">
-                  By submitting this form, you agree to our Privacy Policy and Terms of Service. Your information is secure and confidential.
+                    By submitting this form, you agree to our Privacy Policy and Terms of Service. Your information is secure and confidential.
                 </p>
             </form>
           </div>

@@ -19,7 +19,7 @@ const Footer = () => {
     ],
     contact: [
       { icon: 'Phone', text: '(555) 123-4567' },
-      { icon: 'Mail', text: 'info@medbeauty.com' },
+      { icon: 'Mail', text: 'info@plasticarehub.com' },
       { icon: 'MapPin', text: '123 Medical Plaza, CA 90210' },
       { icon: 'Clock', text: 'Mon-Fri: 9AM-6PM' },
     ],
@@ -62,10 +62,10 @@ const Footer = () => {
                 </svg>
                 <div>
                   <span className="font-headline text-xl font-semibold">
-                    MedBeauty
+                    PlastiCare
                   </span>
                   <span className="font-body text-xs block text-background/80">
-                    Clinic
+                    Hub
                   </span>
                 </div>
               </div>
@@ -145,7 +145,7 @@ const Footer = () => {
           <div className="pt-8 border-t border-background/20">
             <div className="flex flex-col md:flex-row justify-between items-center gap-4">
               <p className="font-body text-sm text-background/80">
-                &copy; {currentYear} MedBeauty Clinic. All rights reserved.
+                &copy; {currentYear} PlastiCare Hub. All rights reserved.
               </p>
               <div className="flex gap-6">
                 <Link

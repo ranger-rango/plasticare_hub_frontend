@@ -10,3 +10,13 @@ body {
   font-family: inherit;
   margin: unset;
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
+#mob-menu {
+  position: fixed;
+  top: 20;
+  height: calc(100vh - 80px);
+}

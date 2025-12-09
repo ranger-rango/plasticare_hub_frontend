@@ -9,7 +9,10 @@ const ConsultationCTA = () => {
     name: '',
     email: '',
     phone: '',
-    procedure: '',
+    interested_procedure: '',
+    preferred_doctor: '',
+    preferred_date: '',
+    preferred_time: '',
     message: ''
   });
 
@@ -53,7 +56,7 @@ const ConsultationCTA = () => {
       newErrors.phone = 'Please enter a valid 10-digit phone number';
     }
 
-    if (!formData.procedure) {
+    if (!formData.interested_procedure) {
       newErrors.procedure = 'Please select a procedure';
     }
 
@@ -76,7 +79,10 @@ const ConsultationCTA = () => {
         name: '',
         email: '',
         phone: '',
-        procedure: '',
+        interested_procedure: '',
+        preferred_doctor: '',
+        preferred_date: '',
+        preferred_time: '',
         message: ''
       });
       setIsSubmitting(false);
@@ -84,7 +90,7 @@ const ConsultationCTA = () => {
   };
 
   return (
-    <section className="py-16 sm:py-20 lg:py-24 bg-gradient-rose relative overflow-hidden">
+    <section className="py-16 sm:py-20 lg:py-24 bg-gradient-rose relative overflow-hidden" id='consultation-booking-section'>
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-0 left-0 w-96 h-96 bg-primary rounded-full blur-3xl" />
         <div className="absolute bottom-0 right-0 w-96 h-96 bg-accent rounded-full blur-3xl" />
@@ -164,7 +170,7 @@ const ConsultationCTA = () => {
             <div className="bg-background rounded-3xl shadow-brand-hover p-8 sm:p-10">
               <div className="text-center mb-8">
                 <h3 className="font-headline text-2xl font-bold text-text-primary mb-2">
-                  Book Your Free Consultation
+                  Book Your Consultation
                 </h3>
                 <p className="font-body text-sm text-text-secondary">
                   Fill out the form below and we'll contact you within 24 hours
@@ -206,9 +212,39 @@ const ConsultationCTA = () => {
                   label="Procedure of Interest"
                   placeholder="Select a procedure"
                   options={procedureOptions}
-                  value={formData.procedure}
+                  value={formData.interested_procedure}
                   onChange={(value) => handleInputChange('procedure', value as string)}
                   error={errors.procedure}
+                  required
+                />
+              
+                <Select
+                  label="Preferred Doctor"
+                  placeholder="Select a surgeon"
+                  options={procedureOptions}
+                  value={formData.preferred_doctor}
+                  onChange={(value) => handleInputChange('procedure', value as string)}
+                  error={errors.procedure}
+                  required
+                />
+
+                <Input
+                  label="Preferred Date"
+                  type="date"
+                  placeholder="(555) 123-4567"
+                  value={formData.phone}
+                  onChange={(e) => handleInputChange('phone', e.target.value)}
+                  error={errors.phone}
+                  required
+                />
+
+                <Input
+                  label="Preferred Time"
+                  type="time"
+                  placeholder="(555) 123-4567"
+                  value={formData.phone}
+                  onChange={(e) => handleInputChange('phone', e.target.value)}
+                  error={errors.phone}
                   required
                 />
 
@@ -240,7 +276,7 @@ const ConsultationCTA = () => {
                 </Button>
 
                 <p className="font-body text-xs text-text-secondary text-center">
-                  By submitting this form, you agree to our Privacy Policy and Terms of Service. Your information is secure and will never be shared.
+                  By submitting this form, you agree to our Privacy Policy and Terms of Service. Your information is secure and confidential.
                 </p>
               </form>
             </div>

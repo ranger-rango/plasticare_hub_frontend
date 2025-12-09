@@ -7,7 +7,8 @@ import SurgeonCard from './components/SurgeonCard';
 import CredentialsSection from './components/CredentialsSection';
 import ConsultationCTA from './components/ConsultationCTA';
 import Icon from '../../components/AppIcon';
-import type { Surgeon, FilterOptions } from './types';
+import type { Surgeon, FilterOptions, Consultation } from './types';
+import ConsultationModal from '../../components/ConsultationModal';
 
 const SurgeonsPage = () => {
   const [filters, setFilters] = useState<FilterOptions>({
@@ -15,6 +16,7 @@ const SurgeonsPage = () => {
     experience: '',
     availability: ''
   });
+  const [showConsultationModal, setShowConsultationModal] = useState(false);
 
   const surgeons: Surgeon[] = [
   {
@@ -488,10 +490,13 @@ const SurgeonsPage = () => {
     setFilters(newFilters);
   };
 
+  const handleSubmit : any = (data : Consultation) => 
+  {}
+
   return (
     <>
       <Helmet>
-        <title>Expert Surgeons - MedBeauty Clinic | Board-Certified Excellence</title>
+        <title>Expert Surgeons - PlastiCare Hub | Board-Certified Excellence</title>
         <meta
           name="description"
           content="Meet our board-certified plastic surgeons. Transform with confidence through expert care combining medical excellence with aesthetic artistry." />
@@ -503,7 +508,7 @@ const SurgeonsPage = () => {
 
         <main className="pt-20">
           <div className="w-full px-4 sm:px-6 lg:px-8 py-12">
-            <HeroSection />
+            <HeroSection onOpen={ () => { setShowConsultationModal(true) } } />
 
             <FilterSection onFilterChange={handleFilterChange} />
 
@@ -542,7 +547,15 @@ const SurgeonsPage = () => {
 
             <CredentialsSection />
 
-            <ConsultationCTA />
+            <ConsultationCTA onOpen={ () => { setShowConsultationModal(true) } } />
+
+            {showConsultationModal &&
+            <ConsultationModal
+              onClose={() => {
+                setShowConsultationModal(false);
+              }}
+              onSubmit={handleSubmit} />
+            }
           </div>
         </main>
 
@@ -551,7 +564,7 @@ const SurgeonsPage = () => {
             <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
               <div>
                 <h3 className="font-headline text-lg font-semibold text-text-primary mb-4">
-                  MedBeauty Clinic
+                  PlastiCare Hub
                 </h3>
                 <p className="font-body text-sm text-text-secondary mb-4">
                   Where medical excellence meets aesthetic artistry
@@ -609,7 +622,7 @@ const SurgeonsPage = () => {
                   </li>
                   <li className="flex items-center space-x-2">
                     <Icon name="Mail" size={16} className="text-primary flex-shrink-0" />
-                    <span className="font-body text-sm text-text-secondary">info@medbeauty.com</span>
+                    <span className="font-body text-sm text-text-secondary">info@plasticarehub.com</span>
                   </li>
                 </ul>
               </div>
@@ -629,7 +642,7 @@ const SurgeonsPage = () => {
 
             <div className="border-t border-border pt-8 text-center">
               <p className="font-body text-sm text-text-secondary">
-                &copy; {new Date().getFullYear()} MedBeauty Clinic. All rights reserved.
+                &copy; {new Date().getFullYear()} PlastiCareHub. All rights reserved.
               </p>
             </div>
           </div>

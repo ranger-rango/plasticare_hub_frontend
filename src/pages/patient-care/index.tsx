@@ -544,8 +544,8 @@ const PatientCare = () => {
   return (
     <>
       <Helmet>
-        <title>Patient Care - MedBeauty Clinic</title>
-        <meta name="description" content="Comprehensive patient care resources, recovery guidance, and support throughout your transformation journey at MedBeauty Clinic." />
+        <title>Patient Care - PlastiCare Hub</title>
+        <meta name="description" content="Comprehensive patient care resources, recovery guidance, and support throughout your transformation journey at PlastiCare Hub." />
       </Helmet>
 
       <div className="min-h-screen bg-background">
@@ -767,7 +767,7 @@ const PatientCare = () => {
                         </div>
                         <div>
                           <p className="text-sm text-text-secondary">Email Support</p>
-                          <p className="font-semibold text-text-primary">care@medbeauty.com</p>
+                          <p className="font-semibold text-text-primary">care@plasticarehub.com</p>
                         </div>
                       </div>
                     </div>
@@ -811,7 +811,7 @@ const PatientCare = () => {
         <footer className="bg-surface border-t border-border py-8">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center text-text-secondary text-sm">
-              <p>&copy; {new Date().getFullYear()} MedBeauty Clinic. All rights reserved.</p>
+              <p>&copy; {new Date().getFullYear()} PlastiCareHub. All rights reserved.</p>
               <p className="mt-2">Your health and privacy are our top priorities.</p>
             </div>
           </div>

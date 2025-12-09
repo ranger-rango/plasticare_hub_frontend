@@ -1,7 +1,12 @@
 import Button from '../../../components/ui/Button';
 import Icon from '../../../components/AppIcon';
 
-const ConsultationCTA = () => {
+interface CTAProps 
+{
+  onOpen: () => void
+}
+
+const ConsultationCTA = ( { onOpen } : CTAProps ) => {
   return (
     <div className="relative bg-gradient-rose rounded-3xl overflow-hidden">
       <div className="absolute inset-0 opacity-10">
@@ -33,6 +38,7 @@ const ConsultationCTA = () => {
               iconName="Calendar"
               iconPosition="left"
               className="bg-primary hover:bg-primary/90 shadow-brand"
+              onClick={onOpen}
             >
               Book Consultation
             </Button>

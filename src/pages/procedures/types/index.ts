@@ -68,6 +68,7 @@ export interface VirtualConsultation {
   name: string;
   email: string;
   phone: string;
+  preferredDoctor: string;
   preferredDate: string;
   preferredTime: string;
   message: string;

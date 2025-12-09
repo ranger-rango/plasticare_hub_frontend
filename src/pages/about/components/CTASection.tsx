@@ -1,7 +1,12 @@
 import Icon from '../../../components/AppIcon';
 import Button from '../../../components/ui/Button';
 
-const CTASection = () => {
+interface CTAProps 
+{
+  onOpen: () => void
+}
+
+const CTASection = ( { onOpen } : CTAProps ) => {
   return (
     <section className="py-20 lg:py-28 bg-surface">
       <div className="w-full px-4 sm:px-6 lg:px-8">
@@ -27,6 +32,7 @@ const CTASection = () => {
                 iconName="Calendar"
                 iconPosition="left"
                 className="bg-background text-primary hover:bg-background/90 shadow-brand"
+                onClick={onOpen}
               >
                 Schedule Consultation
               </Button>

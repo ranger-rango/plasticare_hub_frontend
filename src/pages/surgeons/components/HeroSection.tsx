@@ -1,7 +1,12 @@
 import Button from '../../../components/ui/Button';
 import Icon from '../../../components/AppIcon';
 
-const HeroSection = () => {
+interface heroSectionProps
+{
+  onOpen : () => void
+}
+
+const HeroSection = ( { onOpen } : heroSectionProps ) => {
   return (
     <div className="relative bg-gradient-rose rounded-3xl overflow-hidden mb-12">
       <div className="absolute inset-0 opacity-10">
@@ -33,6 +38,7 @@ const HeroSection = () => {
               iconName="Calendar"
               iconPosition="left"
               className="bg-primary hover:bg-primary/90 shadow-brand"
+              onClick={onOpen}
             >
               Schedule Consultation
             </Button>

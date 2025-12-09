@@ -61,3 +61,12 @@ export interface Statistic {
   label: string;
   icon: string;
 }
+
+export interface FreeEnq {
+  name: string;
+  email: string;
+  phone: string;
+  interestedProcedure: string;
+  infoType: string;
+  message: string;
+}
