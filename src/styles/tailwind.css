@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Primary Colors */
+    --color-primary: #C08497; /* deep-rose */
+    --color-primary-foreground: #FFFFFF; /* white */
+    
+    /* Secondary Colors */
+    --color-secondary: #F4C2C2; /* soft-rose-gold */
+    --color-secondary-foreground: #333333; /* charcoal */
+    
+    /* Accent Colors */
+    --color-accent: #FFB6C1; /* blush-pink */
+    --color-accent-foreground: #333333; /* charcoal */
+    
+    /* Background Colors */
+    --color-background: #FFFFFF; /* pure-white */
+    --color-foreground: #333333; /* charcoal */
+    
+    /* Surface Colors */
+    --color-surface: #F5F5F5; /* warm-gray */
+    --color-surface-foreground: #333333; /* charcoal */
+    
+    /* Muted Colors */
+    --color-muted: #E8E8E8; /* warm-light-gray */
+    --color-muted-foreground: #666666; /* medium-gray */
+    
+    /* Card Colors */
+    --color-card: #FFFFFF; /* pure-white */
+    --color-card-foreground: #333333; /* charcoal */
+    
+    /* Popover Colors */
+    --color-popover: #FFFFFF; /* pure-white */
+    --color-popover-foreground: #333333; /* charcoal */
+    
+    /* Border & Input */
+    --color-border: rgba(244, 194, 194, 0.3); /* soft-rose-gold-30 */
+    --color-input: rgba(244, 194, 194, 0.3); /* soft-rose-gold-30 */
+    --color-ring: #C08497; /* deep-rose */
+    
+    /* Status Colors */
+    --color-success: #E8B4B8; /* muted-rose */
+    --color-success-foreground: #333333; /* charcoal */
+    
+    --color-warning: #D4A5A5; /* dusty-rose */
+    --color-warning-foreground: #333333; /* charcoal */
+    
+    --color-error: #B08090; /* deep-dusty-rose */
+    --color-error-foreground: #FFFFFF; /* white */
+    
+    --color-destructive: #B08090; /* deep-dusty-rose */
+    --color-destructive-foreground: #FFFFFF; /* white */
+    
+    /* Text Colors */
+    --color-text-primary: #333333; /* charcoal */
+    --color-text-secondary: #666666; /* medium-gray */
+    
+    /* Spacing & Layout */
+    --radius: 8px;
+    --spacing-base: 8px;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+  }
+}
+
+@layer utilities {
+  .font-headline {
+    font-family: 'Playfair Display', serif;
+  }
+
+  .font-body {
+    font-family: 'Inter', sans-serif;
+  }
+
+  .font-accent {
+    font-family: 'Crimson Text', serif;
+  }
+
+  .shadow-brand {
+    box-shadow: 0 8px 32px rgba(244, 194, 194, 0.15);
+  }
+
+  .shadow-brand-hover {
+    box-shadow: 0 20px 40px rgba(244, 194, 194, 0.3);
+  }
+
+  .shadow-soft {
+    box-shadow: 0 4px 20px rgba(192, 132, 151, 0.1);
+  }
+
+  .gradient-rose {
+    background: linear-gradient(135deg, rgba(244, 194, 194, 0.9) 0%, rgba(255, 182, 193, 0.7) 50%, rgba(212, 165, 165, 0.8) 100%);
+  }
+
+  .gradient-rose-overlay {
+    background: linear-gradient(180deg, rgba(244, 194, 194, 0.1) 0%, rgba(255, 182, 193, 0.05) 100%);
+  }
+
+  .text-gradient-rose {
+    background: linear-gradient(135deg, #F4C2C2 0%, #FFB6C1 50%, #D4A5A5 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .border-gradient-rose {
+    border-image: linear-gradient(45deg, #F4C2C2, #FFB6C1) 1;
+  }
+
+  .glassmorphism {
+    backdrop-filter: blur(20px);
+    background: rgba(244, 194, 194, 0.1);
+  }
+
+  .transition-brand {
+    transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .transition-confident {
+    transition: all 400ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .animate-pulse-soft {
+    animation: pulse-soft 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  @keyframes pulse-soft {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.7;
+    }
+  }
+
+  .hover-lift {
+    @apply transition-brand;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-8px);
+    @apply shadow-brand-hover;
+  }
+
+  .hover-scale {
+    @apply transition-brand;
+  }
+
+  .hover-scale:hover {
+    transform: scale(1.02);
+  }
+}
