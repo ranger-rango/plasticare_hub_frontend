@@ -6,26 +6,26 @@ const CredentialsSection = () => {
   {
     name: "Kenya Medical Practioners and Dentists Council",
     logo: "https://raw.githubusercontent.com/ranger-rango/plasticare-hub-frontend/refs/heads/main/src/assets/images/kmpdc.png",
-    alt: "American Board of Plastic Surgery certification seal with blue and gold emblem",
-    description: "Board-certified by the only plastic surgery board recognized by the American Board of Medical Specialties"
+    alt: "Kenya Medical Practioners and Dentists Council logo",
+    description: "Licensed by Kenya's official medical regulatory council for professional practice and ethical conduct"
   },
   {
     name: "Kenya Society of Plastic, Reconstructive and Aesthetic Surgeons",
     logo: "https://raw.githubusercontent.com/ranger-rango/plasticare-hub-frontend/refs/heads/main/src/assets/images/kspras.png",
-    alt: "American Society of Plastic Surgeons membership badge with red and white design",
-    description: "Active members of the world's largest organization of board-certified plastic surgeons"
+    alt: "Kenya Society of Plastic, Reconstructive and Aesthetic Surgeons logo",
+    description: "Active members of the leading national association for certified plastic and aesthetic surgeons"
   },
   {
     name: "Pharmacy and Poisons Board",
     logo: "https://raw.githubusercontent.com/ranger-rango/plasticare-hub-frontend/refs/heads/main/src/assets/images/ppb.png",
-    alt: "American College of Surgeons fellowship emblem with traditional medical caduceus symbol",
-    description: "Fellows of the prestigious American College of Surgeons demonstrating surgical excellence"
+    alt: "Pharmacy and Poisons Board logo",
+    description: "Active member of the leading national association for certified plastic and aesthetic surgeons"
   },
   {
     name: "Kenya Health Professions Oversight Authority",
     logo: "https://raw.githubusercontent.com/ranger-rango/plasticare-hub-frontend/refs/heads/main/src/assets/images/khpoa.jpg",
-    alt: "International Society of Aesthetic Plastic Surgery global membership badge",
-    description: "Members of the leading international organization for aesthetic plastic surgery"
+    alt: "Kenya Health Professions Oversight Authority logo",
+    description: "Operating under the oversight of the national authority for healthcare professional standards and patient protection"
   }];
 
 
