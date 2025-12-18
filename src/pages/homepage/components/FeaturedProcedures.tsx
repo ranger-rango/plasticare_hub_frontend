@@ -22,7 +22,7 @@ const FeaturedProcedures = () => {
     name: "Rhinoplasty",
     category: "facial",
     description: "Reshape and refine your nose for improved facial harmony and breathing function",
-    image: "https://images.unsplash.com/photo-1656418159085-68276d2f7a95",
+    image: "https://raw.githubusercontent.com/ranger-rango/plasticare-hub-frontend/refs/heads/main/src/assets/images/rhinoplasty.jpg",
     alt: "Close-up of woman's face showing refined nose profile after rhinoplasty procedure",
     price: "Starting at $8,500",
     duration: "2-3 hours",
@@ -34,7 +34,7 @@ const FeaturedProcedures = () => {
     name: "Breast Augmentation",
     category: "breast",
     description: "Enhance breast size and shape with natural-looking implants or fat transfer",
-    image: "https://img.rocket.new/generatedImages/rocket_gen_img_12683662b-1763294876616.png",
+    image: "https://raw.githubusercontent.com/ranger-rango/plasticare-hub-frontend/refs/heads/main/src/assets/images/breast-augmentation.jpg",
     alt: "Professional woman in elegant dress showing confident posture after breast augmentation",
     price: "Starting at $7,500",
     duration: "1-2 hours",
@@ -46,7 +46,7 @@ const FeaturedProcedures = () => {
     name: "Liposuction",
     category: "body",
     description: "Remove stubborn fat deposits and sculpt your body contours for a slimmer silhouette",
-    image: "https://img.rocket.new/generatedImages/rocket_gen_img_18b49529e-1764859408472.png",
+    image: "https://raw.githubusercontent.com/ranger-rango/plasticare-hub-frontend/refs/heads/main/src/assets/images/liposuction.jpg",
     alt: "Fit woman in athletic wear showing toned body contours after liposuction procedure",
     price: "Starting at $4,500",
     duration: "2-4 hours",
@@ -58,7 +58,7 @@ const FeaturedProcedures = () => {
     name: "Facelift",
     category: "facial",
     description: "Turn back the clock with comprehensive facial rejuvenation for a youthful appearance",
-    image: "https://img.rocket.new/generatedImages/rocket_gen_img_174d50f37-1764644109417.png",
+    image: "https://raw.githubusercontent.com/ranger-rango/plasticare-hub-frontend/refs/heads/main/src/assets/images/facelift.jpg",
     alt: "Mature woman with smooth, lifted facial features showing natural-looking facelift results",
     price: "Starting at $12,000",
     duration: "3-5 hours",
@@ -70,7 +70,7 @@ const FeaturedProcedures = () => {
     name: "Botox & Fillers",
     category: "non-surgical",
     description: "Non-invasive wrinkle reduction and volume restoration for instant rejuvenation",
-    image: "https://img.rocket.new/generatedImages/rocket_gen_img_1a72b9519-1764676128292.png",
+    image: "https://raw.githubusercontent.com/ranger-rango/plasticare-hub-frontend/refs/heads/main/src/assets/images/botox.jpg",
     alt: "Woman receiving facial injection treatment showing smooth, wrinkle-free skin",
     price: "Starting at $500",
     duration: "30 minutes",
@@ -82,7 +82,7 @@ const FeaturedProcedures = () => {
     name: "Tummy Tuck",
     category: "body",
     description: "Achieve a flatter, firmer abdomen by removing excess skin and tightening muscles",
-    image: "https://img.rocket.new/generatedImages/rocket_gen_img_12dc6ed53-1764672588961.png",
+    image: "https://raw.githubusercontent.com/ranger-rango/plasticare-hub-frontend/refs/heads/main/src/assets/images/tummy-tuck.jpg",
     alt: "Woman in fitness attire showing flat, toned abdomen after tummy tuck surgery",
     price: "Starting at $9,500",
     duration: "2-4 hours",
@@ -94,7 +94,7 @@ const FeaturedProcedures = () => {
     name: "Eyelid Surgery",
     category: "facial",
     description: "Refresh tired-looking eyes by removing excess skin and fat from upper and lower lids",
-    image: "https://img.rocket.new/generatedImages/rocket_gen_img_1dd154b95-1764811120508.png",
+    image: "https://raw.githubusercontent.com/ranger-rango/plasticare-hub-frontend/refs/heads/main/src/assets/images/eyelid.jpg",
     alt: "Close-up of woman's eyes showing bright, refreshed appearance after eyelid surgery",
     price: "Starting at $5,500",
     duration: "1-2 hours",
@@ -106,7 +106,7 @@ const FeaturedProcedures = () => {
     name: "Breast Lift",
     category: "breast",
     description: "Restore youthful breast position and shape by lifting and reshaping sagging tissue",
-    image: "https://img.rocket.new/generatedImages/rocket_gen_img_1f7839a05-1764697479177.png",
+    image: "https://raw.githubusercontent.com/ranger-rango/plasticare-hub-frontend/refs/heads/main/src/assets/images/breast-augmentation.jpg",
     alt: "Woman in elegant top showing lifted, youthful breast contours after mastopexy",
     price: "Starting at $8,000",
     duration: "2-3 hours",
@@ -162,10 +162,10 @@ const FeaturedProcedures = () => {
                   className="w-full h-full object-cover group-hover:scale-110 transition-confident" />
 
                   {procedure.popular &&
-                <div className="absolute top-4 right-4 px-3 py-1 bg-primary text-primary-foreground rounded-full text-xs font-medium">
+                    <div className="absolute top-4 right-4 px-3 py-1 bg-primary text-primary-foreground rounded-full text-xs font-medium">
                       Popular
                     </div>
-                }
+                  }
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-confident" />
                 </div>
 
