@@ -13,7 +13,7 @@ const HeroSection = () => {
       <div className="absolute inset-0 gradient-rose-overlay" />
       <div className="absolute inset-0">
         <Image
-          src="https://img.rocket.new/generatedImages/rocket_gen_img_1adff19af-1764799323010.png"
+          src="https://raw.githubusercontent.com/ranger-rango/plasticare-hub-frontend/refs/heads/main/src/assets/images/plasticare-lobby.png"
           alt="Modern luxury medical clinic interior with elegant reception area featuring soft pink lighting and contemporary furniture"
           className="w-full h-full object-cover" />
 
