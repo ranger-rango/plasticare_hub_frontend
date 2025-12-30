@@ -1,73 +1,42 @@
-# React + TypeScript + Vite
+# Plasticare Hub Frontend  
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## System Setup Guidlines  
+  Fork the reposisotry.  
+  Make it private.  
+### Prerequisites  
+  1. You have pnpm installed. (npm can also be used, by first deleting the tsconfig.json)  
+### Configuration Files  
+#### Configuring the .env.production file  
+  1. Edit the .env.production file.  
+  2. Edit the variables in the "{}" as needed, as shown below  
+  ```bash
+      VITE_BASE_URL=/api
+      VITE_BASE_HOST={render-backend-url/api}
 
-Currently, two official plugins are available:
+      VITE_BOOK_CONSULTATION_ENDPOINT=/consultation/book
+      VITE_GET_BOOKED_CONSULTATION_ENDPOINT=/consultations
+      VITE_UPDATE_CONSULTATION_ENDPOINT=/consultation
+      VITE_SEND_ENQUIRY_ENDPOINT=/free-enquiry
+      VITE_GET_ENQUIRIES_ENDPOINT=/free-enquiries
+      VITE_UPDATE_ENQUIRY_ENDPOINT=/free-enquiry
+      VITE_BOOK_TOUR_ENDPOINT=/facility-tours/book
+      VITE_GET_TOURS_ENDPOINT=/facility-tours
+      VITE_UPDATE_TOUR_ENDPOINT=/facility-tour
+      VITE_CREATE_USER_ENDPOINT=/uam/user
+      VITE_REGISTER_USER_ENDPOINT=/uam/auth/register
+      VITE_LOGIN_USER_ENDPOINT=/uam/auth/login
+      VITE_DEACTIVATE_USER_ENDPOINT=/uam/user/deactivate
+      VITE_GET_USERS_ENDPOINT=/uam/users
+      VITE_LOGOUT_ENDPOINT=/uam/auth/logout
+  ```  
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Add Project to Vercel  
+  1. Go to vercel.com, create an account if you don't have one.
+  2. Click Add New, then project.  
+  3. Add you github.  
+  4. Modify the repository permissions to allow vercel accesss to the frontend repo.  
+  5. Deploy.  
+  6. If a custom domain is available, go to domains and link the domain (A domain can also be purchased).  
 
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+  Your frontend should be running at this point.  
+  Have fun.  
