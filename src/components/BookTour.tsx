@@ -46,12 +46,26 @@ const BookTourModal = ({ onClose }: BookTourModalProps) => {
 
     if (!formData.email.trim()) {
       newErrors.email = 'Email is required';
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+    } else if (/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(formData.email)) {
       newErrors.email = 'Invalid email format';
     }
 
     if (!formData.phone.trim()) {
       newErrors.phone = 'Phone number is required';
+    } else if (/^254[17]\d{8}$/.test(formData.email)) {
+      newErrors.phone = 'Invalid phone format';
+    }
+
+    if (!formData.preferred_date.trim()) {
+      newErrors.preferred_date = 'Preferred Date is required';
+    }
+
+    if (!formData.preferred_time.trim()) {
+      newErrors.preferred_time = 'Preferred Time is required';
+    }
+
+    if (!formData.message.trim()) {
+      newErrors.message = 'Message is required';
     }
 
     setErrors(newErrors);

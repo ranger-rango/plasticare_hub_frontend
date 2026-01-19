@@ -1,4 +1,5 @@
 interface ImportMetaEnv {
+  VITE_WHATSAPP_PHONE: any;
   readonly VITE_BOOK_CONSULTATION_ENDPOINT: string;
   readonly VITE_BASE_URL: string
   readonly VITE_BASE_HOST: string
@@ -18,6 +19,8 @@ interface ImportMetaEnv {
   readonly VITE_DEACTIVATE_USER_ENDPOINT: string
   readonly VITE_GET_USERS_ENDPOINT: string
   readonly VITE_LOGOUT_ENDPOINT: string
+
+  readonly VITE_WHATSAPP_PHONE: string
 }
 
 interface ImportMeta {

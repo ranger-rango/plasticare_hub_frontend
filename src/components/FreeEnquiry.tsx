@@ -56,12 +56,26 @@ const FreeEnquiry = ({ onClose }: FreeEnquiryProps) => {
 
     if (!formData.email.trim()) {
       newErrors.email = 'Email is required';
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+    } else if (/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(formData.email)) {
       newErrors.email = 'Invalid email format';
     }
 
     if (!formData.phone.trim()) {
       newErrors.phone = 'Phone number is required';
+    } else if (/^254[17]\d{8}$/.test(formData.email)) {
+      newErrors.phone = 'Invalid phone format';
+    }
+
+    if (!formData.interested_procedure_id) {
+      newErrors.interested_procedure_id = 'Procedure of interest is required';
+    }
+
+    if (!formData.info_type) {
+      newErrors.info_type = 'Information Type is required';
+    }
+
+    if (!formData.message) {
+      newErrors.message = 'Message is required';
     }
 
     setErrors(newErrors);

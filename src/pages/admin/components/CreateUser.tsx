@@ -33,14 +33,26 @@ const CreateUserModal = ({ onClose }: CreateUserProps) => {
   const validateForm = (): boolean => {
     const newErrors: Partial<Record<keyof CreateUserDs, string>> = {};
 
-    if (!formData.first_name.trim()) {
-      newErrors.first_name = 'Name is required';
-    }
-
     if (!formData.email.trim()) {
       newErrors.email = 'Email is required';
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+    } else if (/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(formData.email)) {
       newErrors.email = 'Invalid email format';
+    }
+
+    if (!formData.first_name.trim()) {
+      newErrors.first_name = 'First Name is required';
+    }
+
+    if (!formData.middle_name.trim()) {
+      newErrors.middle_name = 'Middle Name is required';
+    }
+
+    if (!formData.surname.trim()) {
+      newErrors.surname = 'Surame is required';
+    }
+
+    if (!formData.privilege.trim()) {
+      newErrors.privilege = 'User privilege is required';
     }
 
     setErrors(newErrors);

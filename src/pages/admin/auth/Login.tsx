@@ -31,8 +31,14 @@ const LoginPage = () => {
 
     if (!formData.email.trim()) {
         newErrors.email = 'Email is required';
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+    } else if (/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(formData.email)) {
         newErrors.email = 'Invalid email format';
+    }
+
+    if (!formData.password.trim()) {
+        newErrors.password = 'Password is required';
+    } else if (/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)/.test(formData.password)) {
+        newErrors.password = 'Invalid password format';
     }
 
     setErrors(newErrors);

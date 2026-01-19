@@ -58,20 +58,34 @@ const ConsultationModal = ({
 
     if (!formData.email.trim()) {
       newErrors.email = 'Email is required';
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+    } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(formData.email)) {
       newErrors.email = 'Invalid email format';
     }
 
     if (!formData.phone.trim()) {
       newErrors.phone = 'Phone number is required';
+    } else if (/^254[17]\d{8}$/.test(formData.email)) {
+      newErrors.phone = 'Invalid phone format';
     }
 
-    if (!formData.preferred_date) {
+    if (!formData.interested_procedure_id) {
+      newErrors.interested_procedure_id = 'Please select a procedure';
+    }
+
+    if (!formData.preferred_doctor_id) {
+      newErrors.preferred_doctor_id = 'Preferred Doctor is required';
+    }
+
+      if (!formData.preferred_date) {
       newErrors.preferred_date = 'Preferred date is required';
     }
 
     if (!formData.preferred_time) {
       newErrors.preferred_time = 'Preferred time is required';
+    }
+
+    if (!formData.message) {
+      newErrors.message = 'Message is required';
     }
 
     setErrors(newErrors);
