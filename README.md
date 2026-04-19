@@ -40,3 +40,51 @@
 
   Your frontend should be running at this point.  
   Have fun.  
+
+
+## Image | Details Locations
+### Home Page
+| Section | File Path |
+| :--- | :--- |
+| Hero slides | `plasticare_hub_frontend/src/pages/homepage/components/HeroSection.tsx` |
+| Featured Procedures | `plasticare_hub_frontend/src/pages/homepage/components/Featured Procedures.tsx` |
+| Testimonials Section | `plasticare_hub_frontend/src/pages/homepage/components/TestimonialSection.tsx` |
+| Transformations | `plasticare_hub_frontend/src/pages/homepage/components/TransformationShowcase.tsx` |
+| Surgeon Spotlight | `plasticare_hub_frontend/src/pages/homepage/components/SurgeonSpotlight.tsx` |
+
+---
+
+### Surgeons
+| Section | File Path |
+| :--- | :--- |
+| Our Surgeons | `plasticare_hub_frontend/data/surgeons.ts` |
+| Professional Certifications/Achievements | `plasticare_hub_frontend/src/pages/surgeons/components/CredentialsSection.tsx` |
+
+---
+
+### Patient Gallery
+| Section | File Path |
+| :--- | :--- |
+| Featured Transformations | `plasticare_hub_frontend/src/pages/patient-gallery/index.tsx` |
+| All Transformations | `plasticare_hub_frontend/src/pages/patient-gallery/index.tsx` |
+
+---
+
+### About (Part 1)
+| Section | File Path |
+| :--- | :--- |
+| Landing Image | `plasticare_hub_frontend/src/pages/about/components/HeroSection.tsx` |
+| Philosophy Section | `plasticare_hub_frontend/src/pages/about/components/PhilosophySection.tsx` |
+| Facility Tour | `plasticare_hub_frontend/src/pages/about/components/Facility TourSection.tsx` |
+| Medical Equipment | `plasticare_hub_frontend/src/pages/about/components/TechnologySection.tsx` |
+
+---
+
+## About (Part 2)
+| Section | File Path |
+| :--- | :--- |
+| Team Section | `plasticare_hub_frontend/src/pages/about/components/TeamSection.tsx` |
+| Certifications | `plasticare_hub_frontend/src/pages/about/components/CertificationsSection.tsx` |
+| Safety Protocols | `plasticare_hub_frontend/src/pages/about/components/Certifications Section.tsx` |
+| Awards Section | `plasticare_hub_frontend/src/pages/about/components/AwardsSection.tsx` |
+| Media Features | `plasticare_hub_frontend/src/pages/about/components/AwardsSection.tsx` |
